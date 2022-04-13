@@ -1,0 +1,25 @@
+[
+  {
+    "LocalObservationDateTime": "2022-04-07T14:48:00+03:00",
+    "EpochTime": 1649332080,
+    "WeatherText": "Partly sunny",
+    "WeatherIcon": 3,
+    "HasPrecipitation": false,
+    "PrecipitationType": null,
+    "IsDayTime": true,
+    "Temperature": {
+      "Metric": {
+        "Value": 17,
+        "Unit": "C",
+        "UnitType": 17
+      },
+      "Imperial": {
+        "Value": 63,
+        "Unit": "F",
+        "UnitType": 18
+      }
+    },
+    "MobileLink": "http://www.accuweather.com/en/tr/istanbul/318251/current-weather/318251?lang=en-us",
+    "Link": "http://www.accuweather.com/en/tr/istanbul/318251/current-weather/318251?lang=en-us"
+  }
+]

@@ -1,0 +1,92 @@
+// import { React, useEffect, useState } from "react";
+// import { TextField, Autocomplete, CircularProgress } from "@mui/material";
+
+// import { useDispatch } from "react-redux";
+// import actionStore from "../../../src/store/actionStore";
+// import {
+//   getAutoCompleteCities,
+//   getLocationForecastName,
+// } from "../../service/apiServices";
+// import { locateButtonFetch } from "../../service/getYourLocation";
+// import { filterCityDaysAndTemperature } from "../../service/logic";
+// import axios from "axios";
+
+// const Search = () => {
+//   const [open, setOpen] = useState(false);
+//   const [options, setOptions] = useState([]);
+//   const dispatch = useDispatch();
+
+//   const getCityAutoComplete = async (e) => {
+//     if (e.target.value !== "") {
+//       const result = await axios("../data/isrSearch.json");
+//       const data = result.data.map((city) => {
+//         return {
+//           label: city.LocalizedName,
+//           key: city.Key,
+//         };
+//       });
+//       setOptions([...data]);
+//     } else {
+//       setOptions([]);
+//     }
+//     // const result = await getAutoCompleteCities(e.target.value);
+//   };
+
+//   const setCity = async (currentCity) => {
+//     let Key;
+//     let name;
+//     if (currentCity.GeoPosition) {
+//       Key = currentCity.ParentCity.Key;
+//       name = currentCity.ParentCity.LocalizedName;
+//     } else {
+//       const filterName = options.filter((city) => city.label == currentCity);
+//       let city = filterName[0];
+//       Key = city.key;
+//       name = city.label;
+//     }
+//     const result = await getLocationForecastName(Key);
+//     // const result = await axios("../data/istanbulDaysDaily.json");
+//     const cityData = await filterCityDaysAndTemperature({
+//       days: result,
+//       name: name,
+//       key: Key,
+//     });
+//     dispatch(actionStore("SET_CURRENT_CITY", cityData));
+//   };
+
+//   // useEffect(async () => {
+//   //   const location = await locateButtonFetch();
+//   //   setCity(location);
+//   // }, []);
+
+//   return (
+//     <div className="text-center mt-10 ">
+//       <Autocomplete
+//         disablePortal
+//         id="combo-box-demo"
+//         open={open}
+//         onOpen={() => {
+//           setOpen(true);
+//         }}
+//         onClose={() => {
+//           setOpen(false);
+//         }}
+//         options={options}
+//         onChange={(e) => {
+//           setCity(e.target.textContent);
+//         }}
+//         sx={{ width: 500, display: "inline-block" }}
+//         renderInput={(params) => (
+//           <TextField
+//             onChange={(e) => {
+//               getCityAutoComplete(e);
+//             }}
+//             {...params}
+//             label="City"
+//           />
+//         )}
+//       />
+//     </div>
+//   );
+// };
+// export default Search;
