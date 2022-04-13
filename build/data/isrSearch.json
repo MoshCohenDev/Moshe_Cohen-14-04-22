@@ -1,0 +1,152 @@
+[
+  {
+    "Version": 1,
+    "Key": "318251",
+    "Type": "City",
+    "Rank": 11,
+    "LocalizedName": "Istanbul",
+    "Country": {
+      "ID": "TR",
+      "LocalizedName": "Turkey"
+    },
+    "AdministrativeArea": {
+      "ID": "34",
+      "LocalizedName": "Istanbul"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "208194",
+    "Type": "City",
+    "Rank": 21,
+    "LocalizedName": "Isfahan",
+    "Country": {
+      "ID": "IR",
+      "LocalizedName": "Iran"
+    },
+    "AdministrativeArea": {
+      "ID": "04",
+      "LocalizedName": "Esfahan"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "258278",
+    "Type": "City",
+    "Rank": 30,
+    "LocalizedName": "Islamabad",
+    "Country": {
+      "ID": "PK",
+      "LocalizedName": "Pakistan"
+    },
+    "AdministrativeArea": {
+      "ID": "IS",
+      "LocalizedName": "Islamabad"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "126996",
+    "Type": "City",
+    "Rank": 31,
+    "LocalizedName": "Ismailia",
+    "Country": {
+      "ID": "EG",
+      "LocalizedName": "Egypt"
+    },
+    "AdministrativeArea": {
+      "ID": "IS",
+      "LocalizedName": "Ismailia"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "933777",
+    "Type": "City",
+    "Rank": 35,
+    "LocalizedName": "Isolo",
+    "Country": {
+      "ID": "NG",
+      "LocalizedName": "Nigeria"
+    },
+    "AdministrativeArea": {
+      "ID": "LA",
+      "LocalizedName": "Lagos"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "110630",
+    "Type": "City",
+    "Rank": 41,
+    "LocalizedName": "Isiro",
+    "Country": {
+      "ID": "CD",
+      "LocalizedName": "Democratic Republic of the Congo"
+    },
+    "AdministrativeArea": {
+      "ID": "HU",
+      "LocalizedName": "Haut-Uélé"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "262251",
+    "Type": "City",
+    "Rank": 41,
+    "LocalizedName": "Isabela City",
+    "Country": {
+      "ID": "PH",
+      "LocalizedName": "Philippines"
+    },
+    "AdministrativeArea": {
+      "ID": "BAS",
+      "LocalizedName": "Basilan"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "266097",
+    "Type": "City",
+    "Rank": 41,
+    "LocalizedName": "Isulan",
+    "Country": {
+      "ID": "PH",
+      "LocalizedName": "Philippines"
+    },
+    "AdministrativeArea": {
+      "ID": "SUK",
+      "LocalizedName": "Sultan Kudarat"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "318032",
+    "Type": "City",
+    "Rank": 41,
+    "LocalizedName": "Isparta",
+    "Country": {
+      "ID": "TR",
+      "LocalizedName": "Turkey"
+    },
+    "AdministrativeArea": {
+      "ID": "32",
+      "LocalizedName": "Isparta"
+    }
+  },
+  {
+    "Version": 1,
+    "Key": "170347",
+    "Type": "City",
+    "Rank": 43,
+    "LocalizedName": "Iserlohn",
+    "Country": {
+      "ID": "DE",
+      "LocalizedName": "Germany"
+    },
+    "AdministrativeArea": {
+      "ID": "NW",
+      "LocalizedName": "North Rhine-Westphalia"
+    }
+  }
+]

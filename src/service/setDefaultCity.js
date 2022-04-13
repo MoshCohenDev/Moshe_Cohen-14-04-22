@@ -20,8 +20,8 @@ export async function getCurrentWeather(defaultCity) {
 
 const setCityCurrent = async (Key, name) => {
 	const days = await getLocationForecastName(Key);
-
-	const currentConditions = getCurrentConditions(Key);
+	debugger;
+	const currentConditions = await getCurrentConditions(Key);
 	let currentWeather = {
 		Key,
 		name,
