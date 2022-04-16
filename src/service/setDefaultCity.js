@@ -1,7 +1,7 @@
 import { locaLeButtonFetch } from './getYourLocation';
 import { filterCityDaysAndTemperature } from './logic';
-import { getCurrentConditions, getLocationForecastName } from './apiServices';
-// import { getCurrentConditions, getLocationForecastName } from "./apiLocal";
+// import { getCurrentConditions, getLocationForecastName } from './apiServices';
+import { getCurrentConditions, getLocationForecastName } from './apiLocal';
 
 export async function getCurrentWeather(defaultCity) {
 	let Key;
