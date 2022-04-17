@@ -9,11 +9,10 @@ import { getLocationForecastName } from '../../service/apiServices';
 import { filterCityDaysAndTemperature } from '../../service/logic.js';
 
 export default function FavoriteWeatherCard({ data }) {
-	const [isMetric, setIsMetric] = useState(false);
 	const [checked, setChecked] = useState(true);
 	const dispatch = useDispatch();
 	const { state } = useSelector((state) => state);
-	const { favoriteWeathers, IsFavorite, darkMode } = state;
+	const { favoriteWeathers, IsFavorite, isMetric } = state;
 	const { currentConditions, name } = data;
 	const { Temperature, WeatherText, WeatherIcon } = currentConditions;
 
@@ -34,14 +33,9 @@ export default function FavoriteWeatherCard({ data }) {
 		dispatch(actionStore('SET_DAYS_FORECAST', daysForecast));
 	};
 
-	const handleChange = (event) => {
-		setChecked(event.target.checked);
-		setIsMetric(!isMetric);
-	};
-
 	return (
 		<Card
-			className="sm:w-auto w-96 h-32 sm:p-20 "
+			className="sm:w-auto w-96 h-32 sm:p-20 mt-2 justify-around  "
 			sx={{
 				textAlign: 'left',
 				display: 'flex',
@@ -64,7 +58,7 @@ export default function FavoriteWeatherCard({ data }) {
 				)}
 			</div>
 			<CardContent className="font-bold text-xl text-center">
-				{isMetric === true ? Temperature.Metric.Value : Temperature.Imperial.Value}° C
+				{isMetric ? Temperature.Metric.Value + 'C' : Temperature.Imperial.Value + 'F'}°
 			</CardContent>
 			<div className="flex justify-center">
 				<img
@@ -89,8 +83,6 @@ export default function FavoriteWeatherCard({ data }) {
 				>
 					<DeleteIcon fontSize="inherit" />
 				</IconButton>
-
-				<Switch checked={checked} onChange={handleChange} color="default" inputProps={{ 'aria-label': 'controlled' }} />
 			</CardActions>
 		</Card>
 	);
