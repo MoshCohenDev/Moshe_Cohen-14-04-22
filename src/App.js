@@ -35,21 +35,19 @@ function App() {
 	return (
 		<ThemeProvider theme={darkMode ? createTheme(dark) : createTheme(light)}>
 			<CssBaseline />
-			<div className="App">
-				<Router>
-					<NavBar />
-					<Container>
-						<Switch>
-							<Route path="/favorite">
-								<FavoritePage />
-							</Route>
-							<Route path="/">
-								<HomePage />
-							</Route>
-						</Switch>
-					</Container>
-				</Router>{' '}
-			</div>
+			<Router>
+				<NavBar />
+				<Container>
+					<Switch>
+						<Route path="/favorite">
+							<FavoritePage />
+						</Route>
+						<Route path="/">
+							<HomePage />
+						</Route>
+					</Switch>
+				</Container>
+			</Router>{' '}
 		</ThemeProvider>
 	);
 }

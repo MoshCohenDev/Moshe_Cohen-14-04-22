@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAutoCompleteCities } from '../../service/apiServices';
 import actionStore from '../../store/actionStore';
 import { getCurrentWeather } from '../../service/setDefaultCity';
+import Alert from '@mui/material/Alert';
 
 const Search = () => {
 	const [options, setOptions] = useState([]);
@@ -59,6 +60,7 @@ const Search = () => {
 					/>
 				)}
 			/>
+			{error && <Alert severity="error">write something</Alert>}
 		</div>
 	);
 };
