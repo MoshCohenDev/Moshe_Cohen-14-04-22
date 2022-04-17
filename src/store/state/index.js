@@ -4,6 +4,7 @@ const userInterface = {
 	daysForecast: null,
 	isFavorite: false,
 	darkMode: false,
+	isMetric: true,
 };
 
 export default function state(state = userInterface, action) {

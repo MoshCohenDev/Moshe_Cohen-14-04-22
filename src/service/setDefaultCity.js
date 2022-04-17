@@ -3,24 +3,14 @@ import { filterCityDaysAndTemperature } from './logic';
 // import { getCurrentConditions, getLocationForecastName } from './apiServices';
 import { getCurrentConditions, getLocationForecastName } from './apiLocal';
 
-export async function getCurrentWeather(defaultCity) {
-	let Key;
-	let name;
-	let location = await locaLeButtonFetch();
-	if (location) {
-		Key = location.Key;
-		name = location.AdministrativeArea.LocalizedName;
-	} else {
-		Key = defaultCity.Key;
-		name = defaultCity.name;
-	}
+export async function getCurrentWeather({ Key, name }) {
+	debugger;
 	const res = await setCityCurrent(Key, name);
 	return res;
 }
 
 const setCityCurrent = async (Key, name) => {
 	const days = await getLocationForecastName(Key);
-	debugger;
 	const currentConditions = await getCurrentConditions(Key);
 	let currentWeather = {
 		Key,

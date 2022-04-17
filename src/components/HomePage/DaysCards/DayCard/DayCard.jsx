@@ -1,7 +1,10 @@
 import React from 'react';
 import { Card, CardHeader, CardContent } from '@mui/material';
+import { useSelector } from 'react-redux';
 
 function DayCard({ data }) {
+	const { state } = useSelector((state) => state);
+
 	return (
 		<Card
 			className="sm:px-8 px-2 pt-2 sm:pb-0 min-w-max text-center sm:block flex sm:justify-center  justify-between items-center mb-6  "
@@ -15,12 +18,14 @@ function DayCard({ data }) {
 			<CardContent className="sm:text-xl font-bold mt-2">
 				{data.date}/{data.month}{' '}
 			</CardContent>
-			<p className="font-bold sm:text-base">min :{data.min} C</p>
-			<p className="font-bold sm:text-base ">max :{data.max} C</p>
+			<p className="font-bold sm:text-base">min :{state.isMetric ? data.ceMin + ' C' : data.feMin + ' F'} </p>
+			<p className="font-bold sm:text-base ">max :{state.isMetric ? data.ceMax + ' C' : data.feMax + ' F'} </p>
 			<div className="flex justify-center">
 				<img
-					className="animate-pulse mt-2 mb-0"
-					src={`https://developer.accuweather.com/sites/default/files/${data.day.Icon}-s.png`}
+					className="animate-pulse"
+					src={`https://developer.accuweather.com/sites/default/files/${
+						data.day.Icon < 10 ? data.day.Icon.toString().padStart(2, '0') : data.day.Icon
+					}-s.png`}
 				></img>
 			</div>
 		</Card>

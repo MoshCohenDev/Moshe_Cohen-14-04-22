@@ -60,7 +60,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 const NavBar = () => {
 	const dispatch = useDispatch();
 	const { state } = useSelector((state) => state);
-	const { darkMode } = state;
+	const { darkMode, isMetric } = state;
 
 	return (
 		<div>
@@ -84,6 +84,14 @@ const NavBar = () => {
 						control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
 						label={darkMode ? 'light ' : 'dark '}
 						onChange={(e) => dispatch(actionStore('SET_IS_DARK', !darkMode))}
+					/>
+				</FormGroup>
+				<FormGroup>
+					<FormControlLabel
+						control={
+							<Switch onChange={(e) => dispatch(actionStore('SET_IS_METRIC', !isMetric))} name={isMetric ? 'C' : 'F'} />
+						}
+						label={isMetric ? 'C' : 'F'}
 					/>
 				</FormGroup>
 			</div>

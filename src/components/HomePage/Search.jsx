@@ -11,13 +11,13 @@ const Search = () => {
 	const dispatch = useDispatch();
 
 	const searchCity = async (e) => {
-		if (e.target.value === '' || e.target.value === typeof number) {
+		if (e === '' || e === typeof number) {
 			setError(true);
 			setOptions([]);
 		} else {
 			setError(false);
-			const result = getAutoCompleteCities(e.target.value);
-			const data = result.data.map((city) => {
+			const result = await getAutoCompleteCities(e);
+			const data = result.map((city) => {
 				return {
 					label: city.LocalizedName,
 					key: city.Key,
@@ -39,8 +39,8 @@ const Search = () => {
 		});
 		dispatch(actionStore('SET_CURRENT_CITY_AND_CONDITION', currentWeather));
 		dispatch(actionStore('SET_IS_FAVORITE', false));
+		debugger;
 		dispatch(actionStore('SET_DAYS_FORECAST', daysForecast));
-		return daysForecast;
 	};
 	return (
 		<div className=" text-center mt-10 flex-col">
@@ -53,7 +53,7 @@ const Search = () => {
 				renderInput={(params) => (
 					<TextField
 						{...params}
-						onChange={(e) => searchCity(e)}
+						onChange={(e) => searchCity(e.target.value)}
 						variant="outlined"
 						label={'Search city english  only'}
 					/>

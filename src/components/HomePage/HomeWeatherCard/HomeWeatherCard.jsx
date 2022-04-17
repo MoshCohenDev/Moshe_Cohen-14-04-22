@@ -6,10 +6,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 export default function HomeWeatherCard({ data }) {
-	const [isMetric, setIsMetric] = useState(false);
 	const dispatch = useDispatch();
 	const { state } = useSelector((state) => state);
-	const { favoriteWeathers, isFavorite } = state;
+	const { favoriteWeathers, isFavorite, isMetric } = state;
 	const { currentConditions, name } = data;
 	const { Temperature, WeatherText, WeatherIcon } = currentConditions;
 
@@ -27,10 +26,6 @@ export default function HomeWeatherCard({ data }) {
 				...favoriteWeather,
 			})
 		);
-	};
-
-	const handleChange = () => {
-		setIsMetric(!isMetric);
 	};
 
 	return (
@@ -51,7 +46,7 @@ export default function HomeWeatherCard({ data }) {
 					textAlign: 'left',
 					display: 'flex',
 					alignItems: 'center',
-					justifyContent: 'space-start',
+					justifyContent: 'space-around',
 					padding: 4,
 					borderRadius: 10,
 				}}
@@ -60,17 +55,16 @@ export default function HomeWeatherCard({ data }) {
 					<CardHeader className="font-bold " title={name} subheader={WeatherText} />
 				</div>
 				<CardContent className="font-bold sm:text-3xl text-center">
-					{isMetric === true ? Temperature.Metric.Value + ' ° C' : Temperature.Imperial.Value + ' ° F'}
+					{isMetric ? Temperature.Metric.Value + ' ° C' : Temperature.Imperial.Value + ' ° F'}
 				</CardContent>
 				<div className="flex justify-center">
 					<img
 						className="animate-pulse"
-						src={`https://developer.accuweather.com/sites/default/files/${WeatherIcon}-s.png`}
+						src={`https://developer.accuweather.com/sites/default/files/${
+							WeatherIcon < 10 ? WeatherIcon.toString().padStart(2, '0') : WeatherIcon
+						}-s.png`}
 					></img>
 				</div>
-				<FormGroup>
-					<FormControlLabel onChange={handleChange} control={<Switch defaultChecked />} label="C/F" />
-				</FormGroup>
 			</Card>
 		</div>
 	);

@@ -1,4 +1,6 @@
 import { React, useEffect } from 'react';
+import { locaLeButtonFetch } from '../service/getYourLocation';
+
 import actionStore from '../store/actionStore';
 import DaysCards from '../components/HomePage/DaysCards/DaysCards';
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,27 +9,35 @@ import { getCurrentWeather } from '../service/setDefaultCity';
 import HomeWeatherCard from '../components/HomePage/HomeWeatherCard/HomeWeatherCard';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-const defaultCity = {
-	name: 'Tel Aviv',
-	Key: '215854',
-};
 
 const HomePage = () => {
 	const dispatch = useDispatch();
 	const { state } = useSelector((state) => state);
 	const { currentWeatherAndCondition, daysForecast } = state;
 
-	useEffect(() => {
+	const getDefaultCity = () => {
+		let defaultCity = {};
 		if (currentWeatherAndCondition) {
 			return { currentWeatherAndCondition, daysForecast };
 		} else {
 			async function fetchMyAPI() {
+				let location = await locaLeButtonFetch();
+				if (location) {
+					defaultCity.Key = location.Key;
+					defaultCity.name = location.AdministrativeArea.LocalizedName;
+				} else {
+					defaultCity.name = 'Tel Aviv';
+					defaultCity.Key = '215854';
+				}
 				const { daysForecast, currentWeather } = await getCurrentWeather(defaultCity);
 				dispatch(actionStore('SET_CURRENT_CITY_AND_CONDITION', currentWeather));
 				dispatch(actionStore('SET_DAYS_FORECAST', daysForecast));
 			}
 			fetchMyAPI();
 		}
+	};
+	useEffect(() => {
+		getDefaultCity();
 	}, []);
 
 	return (
